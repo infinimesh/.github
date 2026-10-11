@@ -70,7 +70,7 @@ MQTT on port 8883 is terminated by the bridge, not by the proxy. `docker-compose
 
 Caddy is the other proxy (`docker-compose.caddy.yml` and `Caddyfile`). The bridge cannot read Caddy's storage. That overlay mounts Caddy's PEM files as `TLS_CERT_FILE` and `TLS_KEY_FILE`.
 
-The device registry in the Compose stack is the `repo` service. Inside the Docker network it is plaintext gRPC at `repo:8000`. Public clients use `api.$BASE_DOMAIN` port 443:
+The device registry in the Compose stack is the `api` service. Inside the Docker network it is plaintext gRPC at `api:8000`. HTTP/JSON is the `gateway` service. Pairing is the `pairing` service; its public path stays `/infinimesh.handsfree.`. Public clients use `api.$BASE_DOMAIN` port 443:
 
 ```bash
 inf login --api api.example.com:443 --username root --password 'your-root-password'
@@ -78,27 +78,27 @@ inf login --api api.example.com:443 --username root --password 'your-root-passwo
 
 Devices use `mqtt.$BASE_DOMAIN:8883` with a client certificate. Steps, DNS, and which ports to leave unpublished are in [core/docs/public-tls.md](https://github.com/infinimesh/core/blob/main/docs/public-tls.md).
 
-The [platform-operator](https://github.com/infinimesh/platform-operator) sample is the older cluster layout. Its device-registry Deployment is plaintext ClusterIP. TLS is the API Ingress secret plus `spec.mqtt.secretName` mounted at `/cert` on the bridge (`tls.crt`, `tls.key`). Set `controller.device_registry` and `controller.mqtt_bridge` to turn those on. That flag does not change the Compose `repo` service.
+The [platform-operator](https://github.com/infinimesh/platform-operator) reconciles the same images. MQTT TLS is `spec.mqtt.secretName`, mounted at `/cert` on the bridge (`tls.crt`, `tls.key`).
 
 ## Install on Kubernetes
 
-The operator installs a platform into a cluster. The recipes in [k8s](https://github.com/infinimesh/k8s) are `microk8s/`, `minikube/`, `hetzner/`, and `production/`.
+The operator installs a platform into a cluster. Static manifests for the same processes are in [k8s](https://github.com/infinimesh/k8s) (`kubectl apply -k base`, namespace `infinimesh`).
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/infinimesh/platform-operator/main/manifests/crd.yaml
 kubectl apply -f https://raw.githubusercontent.com/infinimesh/platform-operator/main/manifests/operator.yaml
 ```
 
-Then apply a Platform manifest from the recipe you are using. The root password is written to a Secret. See the recipe README for the secret name.
+Then apply a Platform manifest. The root password is written to a Secret.
 
-Docker Compose in `core` is the current single-host stack. The cluster recipes are the operator install.
+Docker Compose in `core` is the single-host stack. The operator and the `k8s` base are the cluster install.
 
 ## Operate
 
 - Console manages accounts, namespaces, and devices.
 - CLI does the same against the API. `inf login` first. Pass `--insecure` only for local h2c.
 - Device MQTT uses the token or certificate issued for that device. See `docs/device-auth.md` in core.
-- Shadow is the device twin. Repo and shadow processes are separate binaries under `cmd/` in core.
+- Shadow is the device twin. `api` and `shadow` are separate processes under `cmd/` in core.
 - Logs and health for a Compose install: `docker compose ps` and `docker compose logs` in the core checkout.
 - Images publish to `ghcr.io/infinimesh/core/<service>` when a `vX.Y.Z` tag is pushed on core.
 
