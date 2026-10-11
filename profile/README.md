@@ -23,7 +23,7 @@ This page is the map. Install and day-to-day operation are below. Each repositor
 
 ## Install on one machine
 
-Requirements: Docker, Docker Compose, Go 1.24 or newer for the CLI.
+Requirements: Docker, Docker Compose, Go 1.27 for the CLI.
 
 ```bash
 git clone https://github.com/infinimesh/core.git
