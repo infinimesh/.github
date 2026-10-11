@@ -2,6 +2,8 @@
 
 Open IoT platform. Apache-2.0. Device registry, auth, digital-twin shadow, MQTT bridge, and REST, gRPC, and Connect APIs. One tenant graph, no vendor lock-in.
 
+The public site is [infinimesh.github.io/website](https://infinimesh.github.io/website/).
+
 This page is the map. Install and day-to-day operation are below. Each repository's own README is the detail for that repo.
 
 ## Repositories
