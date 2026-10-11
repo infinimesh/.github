@@ -59,6 +59,24 @@ inf devices create demo-sensor
 
 More of the same flow is in [core/docs/installation.md](https://github.com/infinimesh/core/blob/main/docs/installation.md) and [core/docs/device-auth.md](https://github.com/infinimesh/core/blob/main/docs/device-auth.md). OpenAPI is `api.swagger.json` in core, generated from [proto](https://github.com/infinimesh/proto).
 
+## Public domain
+
+Traefik is the proxy in core's `docker-compose.yaml`. On a real `BASE_DOMAIN`, with TCP 80 and 443 open and the ACME email set in `traefik.yml`, it gets Let's Encrypt certificates for `console`, `api`, `traefik`, `rbmq`, `db`, and `media`.
+
+MQTT on port 8883 is terminated by the bridge, not by the proxy. `docker-compose.public.yml` asks Let's Encrypt for `mqtt.$BASE_DOMAIN` and points the bridge at Traefik's `acme.json` (`ACME`). The bridge uses the certificate whose name starts with `mqtt.`.
+
+Caddy is the other proxy (`docker-compose.caddy.yml` and `Caddyfile`). The bridge cannot read Caddy's storage. That overlay mounts Caddy's PEM files as `TLS_CERT_FILE` and `TLS_KEY_FILE`.
+
+The device registry in the Compose stack is the `repo` service. Inside the Docker network it is plaintext gRPC at `repo:8000`. Public clients use `api.$BASE_DOMAIN` port 443:
+
+```bash
+inf login --api api.example.com:443 --username root --password 'your-root-password'
+```
+
+Devices use `mqtt.$BASE_DOMAIN:8883` with a client certificate. Steps, DNS, and which ports to leave unpublished are in [core/docs/public-tls.md](https://github.com/infinimesh/core/blob/main/docs/public-tls.md).
+
+The [platform-operator](https://github.com/infinimesh/platform-operator) sample is the older cluster layout. Its device-registry Deployment is plaintext ClusterIP. TLS is the API Ingress secret plus `spec.mqtt.secretName` mounted at `/cert` on the bridge (`tls.crt`, `tls.key`). Set `controller.device_registry` and `controller.mqtt_bridge` to turn those on. That flag does not change the Compose `repo` service.
+
 ## Install on Kubernetes
 
 The operator installs a platform into a cluster. The recipes in [k8s](https://github.com/infinimesh/k8s) are `microk8s/`, `minikube/`, `hetzner/`, and `production/`.
