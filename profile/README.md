@@ -2,7 +2,7 @@
 
 Open IoT platform. Apache-2.0. Device registry, auth, digital-twin shadow, MQTT bridge, and REST, gRPC, and Connect APIs. One tenant graph, no vendor lock-in.
 
-The public site is [infinimesh.github.io/website](https://infinimesh.github.io/website/).
+The public site is [infinimesh.org](https://infinimesh.org/).
 
 This page is the map. Install and day-to-day operation are below. Each repository's own README is the detail for that repo.
 
@@ -16,7 +16,7 @@ This page is the map. Install and day-to-day operation are below. Each repositor
 | [addons](https://github.com/infinimesh/addons) | `github.com/infinimesh/addons` | Connectors. Not part of the platform process |
 | [platform-operator](https://github.com/infinimesh/platform-operator) | `github.com/infinimesh/enterprise-operator` | Kubernetes operator. The name `operator` is retired on this org |
 | [k8s](https://github.com/infinimesh/k8s) | manifests | Cluster recipes that apply a Platform custom resource |
-| [website](https://github.com/infinimesh/website) | static files | Public site |
+| [website](https://github.com/infinimesh/website) | static files | [infinimesh.org](https://infinimesh.org/) |
 
 `core` depends on `proto`. `inf-cli` depends on `core` and `proto`. Addons talk to the platform API. They do not import `core`.
 
