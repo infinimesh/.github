@@ -16,6 +16,7 @@ This page is the map. Install and day-to-day operation are below. Each repositor
 | [addons](https://github.com/infinimesh/addons) | `github.com/infinimesh/addons` | Connectors. Not part of the platform process |
 | [platform-operator](https://github.com/infinimesh/platform-operator) | `github.com/infinimesh/enterprise-operator` | Kubernetes operator. The name `operator` is retired on this org |
 | [k8s](https://github.com/infinimesh/k8s) | manifests | Cluster recipes that apply a Platform custom resource |
+| [saas](https://github.com/infinimesh/saas) | `github.com/infinitedevices/platform-saas` | Account service and hosting manifests. No kubeconfigs; credentials in the manifests are placeholders |
 | [website](https://github.com/infinimesh/website) | static files | [infinimesh.org](https://infinimesh.org/) |
 
 `core` depends on `proto`. `inf-cli` depends on `core` and `proto`. Addons talk to the platform API. They do not import `core`.
