@@ -12,7 +12,7 @@ Every connected product ends up building the same three things: a list of device
 - **One API.** REST, gRPC and Connect from the same service.
 - **Console and CLI.** A web console and the `inf` command, both on the same API.
 
-The APIs are beta. They may still change between releases.
+The v1 API is stable. New fields may be added, but breaking changes go into a new version. See the [versioning policy](https://github.com/infinimesh/core/blob/main/docs/api-versioning.md).
 
 ## Quick start
 
