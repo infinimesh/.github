@@ -19,13 +19,17 @@ The APIs are beta. They may still change between releases.
 You need Docker with Compose.
 
 ```bash
-git clone https://github.com/infinimesh/core.git && cd core
+git clone https://github.com/infinimesh/core.git
+cd core
 cp .env.example .env
-sed -i 's/^BASE_DOMAIN=.*/BASE_DOMAIN=127.0.0.1.nip.io/' .env
 docker compose up -d
 ```
 
-Open `http://console.127.0.0.1.nip.io` and log in as `infinimesh` with password `infinimesh`. That is a local default. Change it before anyone else can reach the machine.
+Open http://console.127.0.0.1.nip.io
+
+Log in as `infinimesh` / `infinimesh`.
+
+Change the password right away.
 
 Get the CLI with Homebrew:
 
