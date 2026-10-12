@@ -7,8 +7,8 @@ Every connected product ends up building the same three things: a list of device
 ## What it does
 
 - **Device registry.** Accounts, namespaces and devices, stored as a graph. Access can stop at a single device.
-- **Device shadow.** Reported and desired state for every device, over MQTT 3 and 5.
-- **Device auth.** Tokens on port 1883, client certificates on 8883, TLS 1.2 and 1.3.
+- **Device shadow.** Reported and desired state for every device, over MQTT 3.1.1 (MQTT 5 in part).
+- **Device auth.** Each device has a client certificate. TLS 1.2 and 1.3 on port 8883, or a fingerprint login on 1883 for local tests. Scoped tokens for the API.
 - **One API.** REST, gRPC and Connect from the same service.
 - **Console and CLI.** A web console and the `inf` command, both on the same API.
 
@@ -43,7 +43,7 @@ If Homebrew says the tap is untrusted, run `brew trust infinimesh/inf-cli` and t
 | [core](https://github.com/infinimesh/core) | The platform: registry, shadow, MQTT bridge, APIs, console, Docker Compose |
 | [inf-cli](https://github.com/infinimesh/inf-cli) | The `inf` command |
 | [proto](https://github.com/infinimesh/proto) | gRPC, Connect and OpenAPI definitions |
-| [addons](https://github.com/infinimesh/addons) | Connectors that send device data to Elasticsearch, Snowflake, SAP HANA, RedisTimeSeries, S3, GCS and Azure Blob |
+| [addons](https://github.com/infinimesh/addons) | Connectors for Elasticsearch, Snowflake, SAP HANA, RedisTimeSeries, S3, GCS and Azure Blob. Being updated for the v3 API, not ready to use with v3 yet |
 | [platform-operator](https://github.com/infinimesh/platform-operator) | Kubernetes operator |
 | [k8s](https://github.com/infinimesh/k8s) | Plain Kubernetes manifests |
 | [saas](https://github.com/infinimesh/saas) | Account service and manifests for hosting infinimesh for others |
@@ -51,12 +51,12 @@ If Homebrew says the tap is untrusted, run `brew trust infinimesh/inf-cli` and t
 
 ## Who it is for
 
-Teams that ship connected hardware and want to own the backend. You get the device side done, and you keep your data on your own servers.
+Teams that ship connected hardware and want to own the backend. infinimesh is the server side only. Your devices bring their own MQTT client, and your data stays on your own servers.
 
 ## When not to use it
 
 - You want a managed cloud service and do not want to run servers.
-- You want dashboards and a rule engine in the box. infinimesh has neither. Data leaves through addons.
+- You want dashboards and a rule engine in the box. infinimesh has neither. The infinimesh-timeseries-app repo is a Grafana viewer and not part of the platform.
 - You need a frozen API today.
 - You have a few devices and one user. A plain MQTT broker is simpler.
 
