@@ -25,7 +25,7 @@ sed -i 's/^BASE_DOMAIN=.*/BASE_DOMAIN=127.0.0.1.nip.io/' .env
 docker compose up -d
 ```
 
-Open `http://console.127.0.0.1.nip.io` and log in as `root` with password `infinimesh`. That is a local default. Change it before anyone else can reach the machine.
+Open `http://console.127.0.0.1.nip.io` and log in as `infinimesh` with password `infinimesh`. That is a local default. Change it before anyone else can reach the machine.
 
 Get the CLI with Homebrew:
 
