@@ -36,6 +36,18 @@ brew install inf
 
 If Homebrew says the tap is untrusted, run `brew trust infinimesh/inf-cli` and try again. Other ways to install are in the [inf-cli README](https://github.com/infinimesh/inf-cli).
 
+Connect a device: pick an example from [infinimesh/docs](https://github.com/infinimesh/docs/tree/main/examples) (ESP32, Raspberry Pi Pico W or curl) and follow its README.
+
+## Docs and examples
+
+The [infinimesh/docs](https://github.com/infinimesh/docs) repo has small device examples and practical guides. Each example is one sketch or script with a short README.
+
+- [esp32-mqtt](https://github.com/infinimesh/docs/tree/main/examples/esp32-mqtt): ESP32 (Arduino), MQTT over TLS on port 8883 with a device certificate
+- [esp32-http](https://github.com/infinimesh/docs/tree/main/examples/esp32-http): ESP32 (Arduino), HTTPS with a device token
+- [picow-mqtt](https://github.com/infinimesh/docs/tree/main/examples/picow-mqtt): Raspberry Pi Pico W (MicroPython), MQTT over TLS with a device certificate
+- [curl](https://github.com/infinimesh/docs/tree/main/examples/curl): a shell script that sends and reads device state over the REST API
+- [TLS on small devices](https://github.com/infinimesh/docs/blob/main/guides/small-devices-tls.md): why ESP8266 class chips time out during the TLS handshake, and how to fix it
+
 ## Repositories
 
 | Repo | What it is |
@@ -43,7 +55,7 @@ If Homebrew says the tap is untrusted, run `brew trust infinimesh/inf-cli` and t
 | [core](https://github.com/infinimesh/core) | The platform: registry, shadow, MQTT bridge, APIs, console, Docker Compose |
 | [inf-cli](https://github.com/infinimesh/inf-cli) | The `inf` command |
 | [proto](https://github.com/infinimesh/proto) | gRPC, Connect and OpenAPI definitions |
-| [docs](https://github.com/infinimesh/docs) | Device examples (ESP32 MQTT and HTTP, Pico W, curl) and guides, including TLS on small devices |
+| [docs](https://github.com/infinimesh/docs) | Device examples for ESP32 (MQTT and HTTP), Raspberry Pi Pico W (MQTT) and curl, plus guides such as TLS on small devices |
 | [addons](https://github.com/infinimesh/addons) | Connectors for the v3 API: Kafka, webhook, Postgres/TimescaleDB, InfluxDB, MQTT bridge, RedisTimeSeries, Elasticsearch, Snowflake, SAP HANA, S3, GCS and Azure Blob |
 | [platform-operator](https://github.com/infinimesh/platform-operator) | Kubernetes operator |
 | [k8s](https://github.com/infinimesh/k8s) | Plain Kubernetes manifests |
