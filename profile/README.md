@@ -43,7 +43,8 @@ If Homebrew says the tap is untrusted, run `brew trust infinimesh/inf-cli` and t
 | [core](https://github.com/infinimesh/core) | The platform: registry, shadow, MQTT bridge, APIs, console, Docker Compose |
 | [inf-cli](https://github.com/infinimesh/inf-cli) | The `inf` command |
 | [proto](https://github.com/infinimesh/proto) | gRPC, Connect and OpenAPI definitions |
-| [addons](https://github.com/infinimesh/addons) | Connectors for Elasticsearch, Snowflake, SAP HANA, RedisTimeSeries, S3, GCS and Azure Blob. Being updated for the v3 API, not ready to use with v3 yet |
+| [docs](https://github.com/infinimesh/docs) | Device examples (ESP32 MQTT and HTTP, Pico W, curl) and guides, including TLS on small devices |
+| [addons](https://github.com/infinimesh/addons) | Connectors for the v3 API: Kafka, webhook, Postgres/TimescaleDB, InfluxDB, MQTT bridge, RedisTimeSeries, Elasticsearch, Snowflake, SAP HANA, S3, GCS and Azure Blob |
 | [platform-operator](https://github.com/infinimesh/platform-operator) | Kubernetes operator |
 | [k8s](https://github.com/infinimesh/k8s) | Plain Kubernetes manifests |
 | [saas](https://github.com/infinimesh/saas) | Account service and manifests for hosting infinimesh for others |
