@@ -2,6 +2,8 @@
 
 **The device layer for your IoT and AI stack.** Apache-2.0, written in Go, and you run it yourself.
 
+[![The inf CLI creates a device and a rule, reports a hot reading and acks the alarm](https://infinimesh.org/media/inf-cli-demo-poster.png)](https://infinimesh.org/)
+
 Every connected product ends up building the same three things: a list of devices, rules about who may see them, and a record of what each device last reported. infinimesh gives you those three things as software you run yourself. It runs on one machine with Docker Compose, or in Kubernetes.
 
 ## What it does
