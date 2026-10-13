@@ -11,6 +11,8 @@ Every connected product ends up building the same three things: a list of device
 - **Device auth.** Each device has a client certificate. TLS 1.2 and 1.3 on port 8883, or a fingerprint login on 1883 for local tests. Scoped tokens for the API.
 - **One API.** REST, gRPC and Connect from the same service.
 - **Console and CLI.** A web console and the `inf` command, both on the same API.
+- **Rules and alarms (coming in 3.4).** Conditions on device state such as `reported.temp > 70` raise alarms you ack and clear in the console or the API.
+- **OTA contract (coming in 3.4).** Core stores the target firmware version per device and the status the device reports back. Updates switch on only after an OTA addon registers. The hawkBit and Mender addons are coming soon.
 
 The v1 API is stable. New fields may be added, but breaking changes go into a new version. See the [versioning policy](https://github.com/infinimesh/core/blob/main/docs/api-versioning.md).
 
@@ -73,8 +75,7 @@ Teams that ship connected hardware and want to own the backend. infinimesh is th
 ## When not to use it
 
 - You want a managed cloud service and do not want to run servers.
-- You want dashboards and a rule engine in the box. infinimesh has neither. The infinimesh-timeseries-app repo is a Grafana viewer and not part of the platform.
-- You need a frozen API today.
+- You want dashboards in the box. infinimesh has none. Feed Grafana or your own tools through an addon.
 - You have a few devices and one user. A plain MQTT broker is simpler.
 
 ## Get involved
