@@ -14,7 +14,7 @@ Every connected product ends up building the same three things: a list of device
 - **One API.** REST, gRPC and Connect from the same service.
 - **Console and CLI.** A web console and the `inf` command, both on the same API.
 - **Rules and alarms (3.4).** Conditions on device state such as `reported.temp > 70` raise alarms you ack and clear in the console or the API.
-- **OTA contract (3.4).** Core stores the target firmware version per device and the status the device reports back. Updates switch on only after an OTA addon registers through the plugins API. OTA is the only addon kind that registers. The hawkBit and Mender addons are coming soon.
+- **OTA contract (3.4).** Core stores the target firmware version per device and the status the device reports back. Updates switch on only after an OTA addon registers through the plugins API. OTA is the only addon kind that registers. The hawkBit, Mender, and signed webhook addons are in the addons repo. You build them. They are not published images. The core v3.4.1 image does not serve the namespace webhook URL to the webhook addon.
 - **Operations (3.4).** An audit log for alarm, plugin and OTA actions. Quotas per namespace for devices and message rates. MQTT bridge sessions in Redis with `MQTT_SESSION_STORE=redis`. Prometheus metrics on every service. A media service for files per namespace.
 - **AI (coming soon).** An MCP server for agents and an LLM addon for any OpenAI-compatible API, scoped by the same permissions. Not built yet.
 
@@ -73,7 +73,7 @@ The [infinimesh/docs](https://github.com/infinimesh/docs) repo has small device 
 | [inf-cli](https://github.com/infinimesh/inf-cli) | The `inf` command |
 | [proto](https://github.com/infinimesh/proto) | gRPC, Connect and OpenAPI definitions |
 | [docs](https://github.com/infinimesh/docs) | Device examples for ESP32 (MQTT and HTTP), Raspberry Pi Pico W (MQTT) and curl, plus guides such as TLS on small devices |
-| [addons](https://github.com/infinimesh/addons) | Connectors for the v3 API: Kafka, webhook, Postgres/TimescaleDB, InfluxDB, MQTT bridge, RedisTimeSeries, Elasticsearch, Snowflake, SAP HANA, S3, GCS and Azure Blob |
+| [addons](https://github.com/infinimesh/addons) | Connectors for the v3 API, plus OTA addons for hawkBit, Mender, and a signed webhook. No published addon images |
 | [platform-operator](https://github.com/infinimesh/platform-operator) | Kubernetes operator |
 | [k8s](https://github.com/infinimesh/k8s) | Plain Kubernetes manifests |
 | [saas](https://github.com/infinimesh/saas) | Account service and manifests for hosting infinimesh for others |
