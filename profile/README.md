@@ -73,11 +73,12 @@ The [infinimesh/docs](https://github.com/infinimesh/docs) repo has small device 
 | [inf-cli](https://github.com/infinimesh/inf-cli) | The `inf` command |
 | [proto](https://github.com/infinimesh/proto) | gRPC, Connect and OpenAPI definitions |
 | [docs](https://github.com/infinimesh/docs) | Device examples for ESP32 (MQTT and HTTP), Raspberry Pi Pico W (MQTT) and curl, plus guides such as TLS on small devices |
-| [addons](https://github.com/infinimesh/addons) | Connectors for the v3 API, plus OTA addons for hawkBit, Mender, and a signed webhook. No published addon images |
+| [addons](https://github.com/infinimesh/addons) | Data connectors for the v3 API, plus OTA addons for hawkBit, Mender, and a signed webhook |
 | [platform-operator](https://github.com/infinimesh/platform-operator) | Kubernetes operator |
 | [k8s](https://github.com/infinimesh/k8s) | Plain Kubernetes manifests |
-| [saas](https://github.com/infinimesh/saas) | Account service and manifests for hosting infinimesh for others |
 | [website](https://github.com/infinimesh/website) | [infinimesh.org](https://infinimesh.org/) |
+
+Addons v3.4.2 ships the hawkBit, Mender and webhook OTA addons as source only. There are no images and no Helm entries, so you build them yourself.
 
 ## Who it is for
 
