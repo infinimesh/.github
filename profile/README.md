@@ -96,7 +96,8 @@ Teams that ship connected hardware and want to own the backend. infinimesh is th
 
 - [KafScale](https://kafscale.io/): Kafka-compatible streaming that keeps the log in S3. The [Kafka addon](https://github.com/infinimesh/addons/blob/main/kafka/README.md) streams device data to it.
 - [KafClaw](https://github.com/KafClaw/KafClaw): an agent runtime in Go that connects AI agents through Kafka topics.
-- More open source from the same team: [scalytics.io/open-source](https://www.scalytics.io/open-source). Need help running infinimesh? [Commercial support for infinimesh](https://www.scalytics.io/contact) is available from Scalytics.
+- More open source from the same team: [scalytics.io/open-source](https://www.scalytics.io/open-source).
+- infinimesh is part of [Lascaris](https://www.scalytics.io/lascaris), the governed and supported platform from Scalytics.
 
 infinimesh was initiated by [Alexander Alten](https://www.novatechflow.com/p/about-us.html). Read the [infinimesh 3.4 release notes](https://www.novatechflow.com/2026/10/infinimesh-34-device-layer.html).
 
