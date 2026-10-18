@@ -92,6 +92,14 @@ Teams that ship connected hardware and want to own the backend. infinimesh is th
 - You want dashboards in the box. infinimesh has rules and alarms, but no charts. Feed Grafana or your own tools through an addon.
 - You have a few devices and one user. A plain MQTT broker is simpler.
 
+## Related projects
+
+- [KafScale](https://kafscale.io/): Kafka-compatible streaming that keeps the log in S3. The [Kafka addon](https://github.com/infinimesh/addons/blob/main/kafka/README.md) streams device data to it.
+- [KafClaw](https://github.com/KafClaw/KafClaw): an agent runtime in Go that connects AI agents through Kafka topics.
+- More open source from the same team: [scalytics.io/open-source](https://www.scalytics.io/open-source). Need help running infinimesh? [Commercial support for infinimesh](https://www.scalytics.io/contact) is available from Scalytics.
+
+infinimesh was initiated by [Alexander Alten](https://www.novatechflow.com/p/about-us.html). Read the [infinimesh 3.4 release notes](https://www.novatechflow.com/2026/10/infinimesh-34-device-layer.html).
+
 ## Get involved
 
 Found a bug or a gap in the docs? Open an issue in the repo it belongs to. Pull requests are welcome. Report security problems as described in our [security policy](https://github.com/infinimesh/.github/blob/main/SECURITY.md), not in public issues.
